@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Simulador Urna Eletrônica</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="urna">
+            <div class="tela">
+            </div>
+
+            <div class="teclado">
+                <div class="texto">URNA <br> ELETRÔNICA</div>
+                <div class="botoes">
+                    <div class="linha">
+                        <button onclick="verifcaNum(1)">1</button>
+                        <button onclick="verifcaNum(2)">2</button>
+                        <button onclick="verifcaNum(3)">3</button>
+                    </div>
+                    <div class="linha">
+                        <button onclick="verifcaNum(4)">4</button>
+                        <button onclick="verifcaNum(5)">5</button>
+                        <button onclick="verifcaNum(6)">6</button>
+                    </div>
+                    <div class="linha">
+                        <button onclick="verifcaNum(7)">7</button>
+                        <button onclick="verifcaNum(8)">8</button>
+                        <button onclick="verifcaNum(9)">9</button>
+                    </div>
+                    <div class="linha">
+                        <button onclick="verifcaNum(0)">0</button>
+                    </div>
+                    <div class="linha-acao">
+                        <button class="branco">branco</button>
+                        <button class="corrige">corrige</button>
+                        <button id="confirma" class="confirma">confirma</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
