@@ -11,40 +11,41 @@
 <body>
     <div class="container">
         <div class="urna">
-            <div class="tela">
+            <div id="tela" class="tela">
+
+
             </div>
 
             <div class="teclado">
                 <div class="texto">URNA <br> ELETRÔNICA</div>
                 <div class="botoes">
                     <div class="linha">
-                        <button onclick="verifcaNum(1)">1</button>
-                        <button onclick="verifcaNum(2)">2</button>
-                        <button onclick="verifcaNum(3)">3</button>
+                        <button onclick="verificaNum(1)">1</button>
+                        <button onclick="verificaNum(2)">2</button>
+                        <button onclick="verificaNum(3)">3</button>
                     </div>
                     <div class="linha">
-                        <button onclick="verifcaNum(4)">4</button>
-                        <button onclick="verifcaNum(5)">5</button>
-                        <button onclick="verifcaNum(6)">6</button>
+                        <button onclick="verificaNum(4)">4</button>
+                        <button onclick="verificaNum(5)">5</button>
+                        <button onclick="verificaNum(6)">6</button>
                     </div>
                     <div class="linha">
-                        <button onclick="verifcaNum(7)">7</button>
-                        <button onclick="verifcaNum(8)">8</button>
-                        <button onclick="verifcaNum(9)">9</button>
+                        <button onclick="verificaNum(7)">7</button>
+                        <button onclick="verificaNum(8)">8</button>
+                        <button onclick="verificaNum(9)">9</button>
                     </div>
                     <div class="linha">
-                        <button onclick="verifcaNum(0)">0</button>
+                        <button onclick="verificaNum(0)">0</button>
                     </div>
                     <div class="linha-acao">
                         <button class="branco">branco</button>
                         <button class="corrige">corrige</button>
-                        <button id="confirma" class="confirma">confirma</button>
+                        <button id="confirma" class="confirma" onclick="confirma()">confirma</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
     <script src="script.js"></script>
 </body>
 
