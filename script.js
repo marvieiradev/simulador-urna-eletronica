@@ -1,6 +1,9 @@
 let tela = document.getElementById("tela");
 var statusVoto = 0; //0: vereador, 1: prefeito, 2:fim
 let numero = ""
+let votoVereador = ""
+let votoPrefeito = ""
+
 tela.innerHTML = telaVereador;
 
 function verificaNum(num) {
@@ -10,8 +13,10 @@ function verificaNum(num) {
     }
 
     if (numero.length == 2 && statusVoto == 1) {
+        votoPrefeito = numero;
         mostrarTudo()
     } else if (numero.length == 5 && statusVoto == 0) {
+        votoVereador = numero;
         mostrarTudo()
     }
 }
@@ -32,12 +37,13 @@ function confirma() {
         tela.innerHTML = telaPrefeito;
         statusVoto = 1
     } else if (statusVoto == 1) {
-        tela.innerHTML = telaFim;
+        finalizar();
     }
+
 }
 
 function corrige() {
-    numero = ""
+    numero = "";
     if (statusVoto == 0) {
         tela.innerHTML = telaVereador;
     } else if (statusVoto == 1) {
@@ -46,6 +52,14 @@ function corrige() {
 }
 
 function branco() {
-    console.log("branco")
+    corrige()
+    if (statusVoto == 0) { votoVereador = "BRANCO" }
+    if (statusVoto == 1) { votoPrefeito = "BRANCO" }
     document.getElementById("atencao").innerText = "VOTO EM BRANCO"
+}
+
+function finalizar() {
+    tela.innerHTML = telaFim;
+    console.log("Vereador: " + votoVereador);
+    console.log("Prefeito: " + votoPrefeito);
 }
