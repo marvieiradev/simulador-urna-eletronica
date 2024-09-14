@@ -21,7 +21,7 @@ const telaVereador = `
             </div>
             <div class="tela-info">
                 Aperte a tecla:
-                <span>CONFIRMA para CONFIRMAR este voto<br>CORRIGE para REINICIAR este voto</span>
+                <span id="instrucao">CONFIRMA para CONFIRMAR este voto<br>CORRIGE para REINICIAR este voto</span>
             </div>
 `;
 
@@ -45,7 +45,7 @@ const telaPrefeito = `
             </div>
             <div class="tela-info">
                 Aperte a tecla:
-                <span>CONFIRMA para CONFIRMAR este voto<br>CORRIGE para REINICIAR este voto</span>
+                <span id="instrucao">CONFIRMA para CONFIRMAR este voto<br>CORRIGE para REINICIAR este voto</span>
             </div>
 `;
 
