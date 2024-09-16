@@ -50,7 +50,7 @@ function mostrarTudo() {
         for (vereador of vereadores) {
             if (numero.includes(vereador.numero)) {
                 document.getElementById("nome").innerText = "Nome: " + vereador.nome;
-                document.getElementById("foto1").style.backgroundImage = "url(img.jpg)";
+                document.getElementById("foto1").style.backgroundImage = `url(${vereador.foto})`;
                 achouVereador = true;
             }
         }
@@ -64,7 +64,8 @@ function mostrarTudo() {
         for (prefeito of prefeitos) {
             if (numero.includes(prefeito.numero)) {
                 document.getElementById("nome").innerText = "Nome: " + prefeito.nome + "\nVice: " + prefeito.vice;
-                document.getElementById("foto1").style.backgroundImage = "url(img.jpg)";
+                document.getElementById("foto1").style.backgroundImage = `url(${prefeito.foto1})`;
+                document.getElementById("foto2").style.backgroundImage = `url(${prefeito.foto2})`;
                 document.getElementById("partido").innerText = "Partido: " + partido.nome;
                 achouPrefeito = true;
             }
@@ -120,6 +121,7 @@ function nulo() {
 
 function finalizar() {
     statusVoto = 2;
-    tela.innerHTML = telaFim;
+    tela.innerHTML = telaGravando;
+    setTimeout(() => tela.innerHTML = telaFim, 500)
     console.log("VOTO FINALIZADO" + "\nVereador: " + votoVereador + "\nPrefeito: " + votoPrefeito);
 }
