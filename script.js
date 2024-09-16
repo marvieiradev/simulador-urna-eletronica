@@ -84,8 +84,10 @@ function confirma() {
         tela.innerHTML = telaPrefeito;
         statusVoto = 1
         numero = ""
+        tocarAudio(1)
     } else if (statusVoto == 1) {
         finalizar();
+        tocarAudio(1)
     }
 }
 
@@ -122,6 +124,19 @@ function nulo() {
 function finalizar() {
     statusVoto = 2;
     tela.innerHTML = telaGravando;
-    setTimeout(() => tela.innerHTML = telaFim, 500)
+    setTimeout(() => { tela.innerHTML = telaFim, tocarAudio(2) }, 500)
     console.log("VOTO FINALIZADO" + "\nVereador: " + votoVereador + "\nPrefeito: " + votoPrefeito);
+}
+
+function tocarAudio(tipo) {
+    const inter = document.getElementById("inter");
+    const fim = document.getElementById("fim");
+    switch (tipo) {
+        case 1:
+            inter.play();
+            break
+        case 2:
+            fim.play();
+            break
+    }
 }
