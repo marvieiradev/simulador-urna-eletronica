@@ -10,9 +10,25 @@
     width: 100%;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 30px;
     overflow: hidden;
+}
+
+#numeros-validos {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 5px;
+    background: #a6deff;
+    color: #000;
+    gap: 5px;
+    text-align: center;
 }
 
 .urna {
@@ -57,6 +73,7 @@
 #atencao {
     text-align: center;
     font-size: 25px;
+    animation: anim 1s ease infinite;
 }
 
 .fotos {
@@ -164,6 +181,7 @@
     position: absolute;
     bottom: 5px;
     right: 5px;
+    color: #5e5e5e;
 }
 
 .teclado {
@@ -270,7 +288,64 @@ button {
     border-bottom: 2px solid #fff;
 }
 
+#reiniciar {
+    opacity: 0;
+}
+
+#reiniciar button {
+    cursor: pointer;
+    font-size: 20px;
+    background-color: #ffffff;
+    color: #000;
+    border: none;
+    padding: 8px;
+    width: 100%;
+}
+
+#reiniciar button:hover {
+    background-color: #000;
+    color: #ffffff;
+}
+
+@keyframes anim {
+    0% {
+        opacity: 1;
+    }
+
+    20% {
+        opacity: 0.75;
+    }
+
+    40% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 0.25;
+    }
+
+    60% {
+        opacity: 0.5;
+    }
+
+    80% {
+        opacity: 0.75;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 @media (max-width: 480px) {
+    #numeros-validos {
+        padding: 5px;
+        font-weight: 500;
+        font-size: 12px;
+        border-radius: 5px;
+        gap: 5px;
+    }
+
     .urna {
         max-height: 200px;
         display: flex;

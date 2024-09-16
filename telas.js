@@ -5,11 +5,11 @@ const telaVereador = `
                     <div class="titulo">Vereador</div>
                     <div class="numero">
                         <div id="tx-numero">Número:</div>
-                        <div class="num"><span id="n1"></span></div>
-                        <div class="num"><span id="n2"></span></div>
-                        <div class="num"><span id="n3"></span></div>
-                        <div class="num"><span id="n4"></span></div>
-                        <div class="num"><span id="n5"></span></div>
+                        <div class="num" id="num1"><span id="n1"></span></div>
+                        <div class="num" id="num2"><span id="n2"></span></div>
+                        <div class="num" id="num3"><span id="n3"></span></div>
+                        <div class="num" id="num4"><span id="n4"></span></div>
+                        <div class="num" id="num5"><span id="n5"></span></div>
                     </div>
                     <div id="nome">Nome:</div>
                     <div id="partido">Partido:</div>
@@ -32,8 +32,8 @@ const telaPrefeito = `
                     <div class="titulo">Prefeito</div>
                     <div class="numero">
                         <div id="tx-numero">Número:</div>
-                        <div class="num"><span id="n1"></span></div>
-                        <div class="num"><span id="n2"></span></div>
+                        <div class="num" id="num1"><span id="n1"></span></div>
+                        <div class="num" id="num2"><span id="n2"></span></div>
                     </div>
                     <div id="nome">Nome:</div>
                     <div id="partido">Partido:</div>

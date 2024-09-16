@@ -5,13 +5,11 @@ let votoVereador = ""
 let votoPrefeito = ""
 
 tela.innerHTML = telaVereador;
+mostraAnim();
 
 function verificaNum(num) {
     numero += num;
-    if (numero.length <= 5) {
-        document.getElementById("n" + numero.length).innerText = num;
-    }
-
+    document.getElementById("n" + numero.length).innerText = num;
     if (numero.length == 2 && statusVoto == 1) {
         votoPrefeito = numero;
         mostrarTudo()
@@ -23,6 +21,7 @@ function verificaNum(num) {
             mostrarTudo()
         }
     }
+    mostraAnim();
 }
 
 function mostraLegenda() {
@@ -33,6 +32,7 @@ function mostraLegenda() {
         if (numero.includes(partido.legenda)) {
             document.getElementById("partido").style.opacity = 1
             document.getElementById("partido").innerText = "Partido: " + partido.nome;
+            document.getElementById("nome").innerText = "(voto na legenda)";
             achouPartido = true;
         }
     }
@@ -76,18 +76,45 @@ function mostrarTudo() {
     }
 }
 
-function confirma() {
-    if (statusVoto == 0) {
-        if (numero.length == 2) {
-            votoVereador = numero + "--- (VOTO LEGENDA)";
+function mostraAnim() {
+    if (numero.length == 0) {
+        document.getElementById("num1").style.animation = "anim 1s ease infinite";
+    } else {
+        if (statusVoto == 0) {
+            if (numero.length <= 4) {
+                document.getElementById("num" + numero.length).style.animation = "none";
+                document.getElementById("num" + (numero.length + 1)).style.animation = "anim 1s ease infinite";
+            } else {
+                document.getElementById("num" + numero.length).style.animation = "none";
+            }
         }
-        tela.innerHTML = telaPrefeito;
-        statusVoto = 1
-        numero = ""
-        tocarAudio(1)
-    } else if (statusVoto == 1) {
-        finalizar();
-        tocarAudio(1)
+
+        if (statusVoto == 1) {
+            if (numero.length <= 1) {
+                document.getElementById("num" + numero.length).style.animation = "none";
+                document.getElementById("num" + (numero.length + 1)).style.animation = "anim 1s ease infinite";
+            } else {
+                document.getElementById("num" + numero.length).style.animation = "none";
+            }
+        }
+    }
+}
+
+function confirma() {
+    if (numero.length >= 2) {
+        if (statusVoto == 0) {
+            if (numero.length == 2) {
+                votoVereador = numero + "--- (VOTO LEGENDA)";
+            }
+            tela.innerHTML = telaPrefeito;
+            statusVoto = 1
+            numero = ""
+            tocarAudio(1)
+        } else if (statusVoto == 1) {
+            finalizar();
+            tocarAudio(1)
+        }
+        mostraAnim()
     }
 }
 
@@ -126,6 +153,8 @@ function finalizar() {
     tela.innerHTML = telaGravando;
     setTimeout(() => { tela.innerHTML = telaFim, tocarAudio(2) }, 500)
     console.log("VOTO FINALIZADO" + "\nVereador: " + votoVereador + "\nPrefeito: " + votoPrefeito);
+    document.getElementById("reiniciar").style.opacity = 1;
+    document.getElementById("numeros-validos").style.opacity = 0;
 }
 
 function tocarAudio(tipo) {
@@ -139,4 +168,8 @@ function tocarAudio(tipo) {
             fim.play();
             break
     }
+}
+
+function reiniciar() {
+    window.location.reload();
 }
