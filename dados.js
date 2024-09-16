@@ -3,7 +3,7 @@ const vereadores = [
         nome: "Ana Silva",
         numero: "97001",
         partido: "ABC",
-        foto: ""
+        foto: "img/img01"
     },
     {
         nome: "João Santos",
