@@ -41,6 +41,7 @@ const telaPrefeito = `
                 </div>
                 <div class="fotos">
                     <div id="foto1"></div>
+                    <div id="foto2"></div>
                 </div>
             </div>
             <div class="tela-info">
