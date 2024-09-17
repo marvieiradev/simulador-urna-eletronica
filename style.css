@@ -141,6 +141,10 @@
     align-items: center;
 }
 
+#num1 {
+    animation: anim 1s ease infinite;
+}
+
 .tela-gravando {
     display: flex;
     flex-direction: column;

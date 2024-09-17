@@ -3,6 +3,9 @@ var statusVoto = 0; //0: vereador, 1: prefeito, 2:fim
 let numero = ""
 let votoVereador = ""
 let votoPrefeito = ""
+let achouPartido = false;
+let achouVereador = false;
+let achouPrefeito = false;
 
 tela.innerHTML = telaVereador;
 mostraAnim();
@@ -11,14 +14,14 @@ function verificaNum(num) {
     numero += num;
     document.getElementById("n" + numero.length).innerText = num;
     if (numero.length == 2 && statusVoto == 1) {
-        votoPrefeito = numero;
         mostrarTudo()
+        votoPrefeito = achouPrefeito ? numero : "NULO";
     } else if (statusVoto == 0) {
         if (numero.length == 2) {
             mostraLegenda()
         } else if (numero.length == 5) {
-            votoVereador = numero;
             mostrarTudo()
+            votoVereador = achouVereador ? numero : "NULO";
         }
     }
     mostraAnim();
@@ -27,7 +30,6 @@ function verificaNum(num) {
 function mostraLegenda() {
     document.getElementById("nome").style.opacity = 1
     document.getElementById("tx-numero").style.opacity = 1
-    let achouPartido = false;
     for (partido of partidos) {
         if (numero.includes(partido.legenda)) {
             document.getElementById("partido").style.opacity = 1
@@ -46,7 +48,6 @@ function mostrarTudo() {
     document.getElementById("nome").style.opacity = 1
     document.getElementById("partido").style.opacity = 1
     if (statusVoto == 0) {
-        let achouVereador = false;
         for (vereador of vereadores) {
             if (numero.includes(vereador.numero)) {
                 document.getElementById("nome").innerText = "Nome: " + vereador.nome;
@@ -60,7 +61,6 @@ function mostrarTudo() {
     }
 
     if (statusVoto == 1) {
-        let achouPrefeito = false;
         for (prefeito of prefeitos) {
             if (numero.includes(prefeito.numero)) {
                 document.getElementById("nome").innerText = "Nome: " + prefeito.nome + "\nVice: " + prefeito.vice;
@@ -104,7 +104,7 @@ function confirma() {
     if (numero.length >= 2) {
         if (statusVoto == 0) {
             if (numero.length == 2) {
-                votoVereador = numero + "--- (VOTO LEGENDA)";
+                votoVereador = achouPartido ? numero + "--- (VOTO LEGENDA)" : "NULO";
             }
             tela.innerHTML = telaPrefeito;
             statusVoto = 1
@@ -136,8 +136,8 @@ function corrige() {
 
 function branco() {
     corrige()
-    if (statusVoto == 0) { votoVereador = "BRANCO" }
-    if (statusVoto == 1) { votoPrefeito = "BRANCO" }
+    if (statusVoto == 0) { votoVereador = "BRANCO"; numero = "-----"; }
+    if (statusVoto == 1) { votoPrefeito = "BRANCO"; numero = "--"; }
     if (statusVoto == 2) { return }
     document.getElementById("atencao").innerText = "VOTO EM BRANCO"
     document.getElementById("instrucao").innerText = "CONFIRMA para PROSSEGUIR\nCORRIGE para REINICIAR este voto"
@@ -150,6 +150,7 @@ function nulo() {
 
 function finalizar() {
     statusVoto = 2;
+    if (!achouPrefeito || !achouVereador) { nulo() }
     tela.innerHTML = telaGravando;
     setTimeout(() => { tela.innerHTML = telaFim, tocarAudio(2) }, 500)
     console.log("VOTO FINALIZADO" + "\nVereador: " + votoVereador + "\nPrefeito: " + votoPrefeito);
