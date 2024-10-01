@@ -38,7 +38,7 @@
     max-width: 650px;
     max-height: 400px;
     display: flex;
-    padding: 20px 15px;
+    padding: 20px 10px;
     gap: 10px;
 }
 
@@ -251,14 +251,14 @@ button {
 }
 
 .linha-acao button {
-    width: 30%;
-    font-size: 14px;
+    width: 33%;
+    font-size: 13.5px;
     text-align: center;
-    padding: 0 0 16px 0;
+    padding: 0 0 19px 0;
     text-transform: uppercase;
-    letter-spacing: -0.075em;
+    letter-spacing: -0.12em;
     font-weight: 600;
-    font-stretch: ultra-condensed;
+    font-stretch: extra-condensed;
     color: #000;
 }
 
